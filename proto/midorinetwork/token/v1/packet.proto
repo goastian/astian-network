@@ -1,0 +1,14 @@
+syntax = "proto3";
+package midorinetwork.token.v1;
+
+option go_package = "midorinetwork/x/token/types";
+
+// TokenPacketData defines the Token data packet.
+message TokenPacketData {
+  oneof packet {
+    NoData noData = 1;
+  }
+}
+
+// NoData defines an empty data packet.
+message NoData {}

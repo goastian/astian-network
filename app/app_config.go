@@ -3,6 +3,8 @@ package app
 import (
 	_ "midorinetwork/x/midorinetwork/module"
 	midorinetworkmoduletypes "midorinetwork/x/midorinetwork/types"
+	_ "midorinetwork/x/token/module"
+	tokenmoduletypes "midorinetwork/x/token/types"
 	"time"
 
 	runtimev1alpha1 "cosmossdk.io/api/cosmos/app/runtime/v1alpha1"
@@ -127,6 +129,7 @@ var (
 						ibcexported.ModuleName,
 						// chain modules
 						midorinetworkmoduletypes.ModuleName,
+						tokenmoduletypes.ModuleName,
 						// this line is used by starport scaffolding # stargate/app/beginBlockers
 					},
 					EndBlockers: []string{
@@ -136,6 +139,7 @@ var (
 						group.ModuleName,
 						// chain modules
 						midorinetworkmoduletypes.ModuleName,
+						tokenmoduletypes.ModuleName,
 						// this line is used by starport scaffolding # stargate/app/endBlockers
 					},
 					// The following is mostly only needed when ModuleName != StoreKey name.
@@ -173,6 +177,7 @@ var (
 						icatypes.ModuleName,
 						// chain modules
 						midorinetworkmoduletypes.ModuleName,
+						tokenmoduletypes.ModuleName,
 						// this line is used by starport scaffolding # stargate/app/initGenesis
 					},
 				}),
@@ -272,6 +277,10 @@ var (
 			{
 				Name:   midorinetworkmoduletypes.ModuleName,
 				Config: appconfig.WrapAny(&midorinetworkmoduletypes.Module{}),
+			},
+			{
+				Name:   tokenmoduletypes.ModuleName,
+				Config: appconfig.WrapAny(&tokenmoduletypes.Module{}),
 			},
 			// this line is used by starport scaffolding # stargate/app/moduleConfig
 		},

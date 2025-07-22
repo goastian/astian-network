@@ -47,13 +47,14 @@ import (
 
 	"midorinetwork/docs"
 	midorinetworkmodulekeeper "midorinetwork/x/midorinetwork/keeper"
+	tokenmodulekeeper "midorinetwork/x/token/keeper"
 )
 
 const (
 	// Name is the name of the application.
 	Name = "midorinetwork"
 	// AccountAddressPrefix is the prefix for accounts addresses.
-	AccountAddressPrefix = "cosmos"
+	AccountAddressPrefix = "uminet"
 	// ChainCoinType is the coin type of the chain.
 	ChainCoinType = 118
 )
@@ -99,6 +100,7 @@ type App struct {
 	TransferKeeper      ibctransferkeeper.Keeper
 
 	MidorinetworkKeeper midorinetworkmodulekeeper.Keeper
+	TokenKeeper         tokenmodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// simulation manager
@@ -179,6 +181,7 @@ func New(
 		&app.CircuitBreakerKeeper,
 		&app.ParamsKeeper,
 		&app.MidorinetworkKeeper,
+		&app.TokenKeeper,
 	); err != nil {
 		panic(err)
 	}
