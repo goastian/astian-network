@@ -1,5 +1,5 @@
-# Midori Network
-**Midori Network** is a blockchain built using Cosmos SDK and Tendermint the purpose of this blockchain is to:
+# Astian Network
+**Astian Network** is a blockchain built using Cosmos SDK and Tendermint the purpose of this blockchain is to:
 
 - Native Web3 support in Midori Browser.
 - Development of decentralized applications (DApps). DVPN, DNS, File Storage, Private Browsing 
