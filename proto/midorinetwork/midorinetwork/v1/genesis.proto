@@ -1,0 +1,17 @@
+syntax = "proto3";
+package midorinetwork.midorinetwork.v1;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "midorinetwork/midorinetwork/v1/params.proto";
+
+option go_package = "midorinetwork/x/midorinetwork/types";
+
+// GenesisState defines the midorinetwork module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}

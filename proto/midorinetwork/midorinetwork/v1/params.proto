@@ -1,0 +1,13 @@
+syntax = "proto3";
+package midorinetwork.midorinetwork.v1;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "midorinetwork/x/midorinetwork/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "midorinetwork/x/midorinetwork/Params";
+  option (gogoproto.equal) = true;
+}
