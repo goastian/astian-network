@@ -1,10 +1,8 @@
 package app
 
 import (
-	_ "midorinetwork/x/midorinetwork/module"
-	midorinetworkmoduletypes "midorinetwork/x/midorinetwork/types"
-	_ "midorinetwork/x/token/module"
-	tokenmoduletypes "midorinetwork/x/token/types"
+	_ "astianetwork/x/astianetwork/module"
+	astianetworkmoduletypes "astianetwork/x/astianetwork/types"
 	"time"
 
 	runtimev1alpha1 "cosmossdk.io/api/cosmos/app/runtime/v1alpha1"
@@ -128,8 +126,7 @@ var (
 						// ibc modules
 						ibcexported.ModuleName,
 						// chain modules
-						midorinetworkmoduletypes.ModuleName,
-						tokenmoduletypes.ModuleName,
+						astianetworkmoduletypes.ModuleName,
 						// this line is used by starport scaffolding # stargate/app/beginBlockers
 					},
 					EndBlockers: []string{
@@ -138,8 +135,7 @@ var (
 						feegrant.ModuleName,
 						group.ModuleName,
 						// chain modules
-						midorinetworkmoduletypes.ModuleName,
-						tokenmoduletypes.ModuleName,
+						astianetworkmoduletypes.ModuleName,
 						// this line is used by starport scaffolding # stargate/app/endBlockers
 					},
 					// The following is mostly only needed when ModuleName != StoreKey name.
@@ -176,8 +172,7 @@ var (
 						ibctransfertypes.ModuleName,
 						icatypes.ModuleName,
 						// chain modules
-						midorinetworkmoduletypes.ModuleName,
-						tokenmoduletypes.ModuleName,
+						astianetworkmoduletypes.ModuleName,
 						// this line is used by starport scaffolding # stargate/app/initGenesis
 					},
 				}),
@@ -275,12 +270,8 @@ var (
 				Config: appconfig.WrapAny(&epochsmodulev1.Module{}),
 			},
 			{
-				Name:   midorinetworkmoduletypes.ModuleName,
-				Config: appconfig.WrapAny(&midorinetworkmoduletypes.Module{}),
-			},
-			{
-				Name:   tokenmoduletypes.ModuleName,
-				Config: appconfig.WrapAny(&tokenmoduletypes.Module{}),
+				Name:   astianetworkmoduletypes.ModuleName,
+				Config: appconfig.WrapAny(&astianetworkmoduletypes.Module{}),
 			},
 			// this line is used by starport scaffolding # stargate/app/moduleConfig
 		},

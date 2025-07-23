@@ -33,7 +33,7 @@ import (
 )
 
 const (
-	SimAppChainID = "midorinetwork-simapp"
+	SimAppChainID = "astianetwork-simapp"
 )
 
 var FlagEnableStreamingValue bool
@@ -132,7 +132,7 @@ func TestFullAppSimulation(t *testing.T) {
 	if !simcli.FlagSigverifyTxValue {
 		app.SetNotSigverifyTx()
 	}
-	require.Equal(t, "midorinetwork", app.Name())
+	require.Equal(t, "astianetwork", app.Name())
 
 	// run randomized simulation
 	_, simParams, simErr := simulation.SimulateFromSeed(
