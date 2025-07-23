@@ -1,0 +1,11 @@
+syntax = "proto3";
+package astianetwork.token.v1;
+
+option go_package = "astianetwork/x/token/types";
+
+// Coin defines the Coin message.
+message Coin {
+  uint64 id = 1;
+  string name = 2; 
+  string creator = 3;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+package astianetwork.token.v1;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "astianetwork/x/token/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "astianetwork/x/token/Params";
+  option (gogoproto.equal) = true;
+}

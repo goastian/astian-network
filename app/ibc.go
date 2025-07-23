@@ -1,6 +1,9 @@
 package app
 
 import (
+	tokenmodule "astianetwork/x/token/module"
+	tokenmoduletypes "astianetwork/x/token/types"
+
 	"cosmossdk.io/core/appmodule"
 	storetypes "cosmossdk.io/store/types"
 	"github.com/cosmos/cosmos-sdk/codec"
@@ -117,6 +120,8 @@ func (app *App) registerIBCModules(appOpts servertypes.AppOptions) error {
 	ibcv2Router := ibcapi.NewRouter().
 		AddRoute(ibctransfertypes.PortID, transferStackV2)
 
+	tokenIBCModule := tokenmodule.NewIBCModule(app.appCodec, app.TokenKeeper)
+	ibcRouter.AddRoute(tokenmoduletypes.ModuleName, tokenIBCModule)
 	// this line is used by starport scaffolding # ibc/app/module
 
 	app.IBCKeeper.SetRouter(ibcRouter)

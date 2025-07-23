@@ -47,6 +47,7 @@ import (
 
 	"astianetwork/docs"
 	astianetworkmodulekeeper "astianetwork/x/astianetwork/keeper"
+	tokenmodulekeeper "astianetwork/x/token/keeper"
 )
 
 const (
@@ -99,6 +100,7 @@ type App struct {
 	TransferKeeper      ibctransferkeeper.Keeper
 
 	AstianetworkKeeper astianetworkmodulekeeper.Keeper
+	TokenKeeper        tokenmodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// simulation manager
@@ -179,6 +181,7 @@ func New(
 		&app.CircuitBreakerKeeper,
 		&app.ParamsKeeper,
 		&app.AstianetworkKeeper,
+		&app.TokenKeeper,
 	); err != nil {
 		panic(err)
 	}
