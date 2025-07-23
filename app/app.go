@@ -53,7 +53,7 @@ const (
 	// Name is the name of the application.
 	Name = "astianetwork"
 	// AccountAddressPrefix is the prefix for accounts addresses.
-	AccountAddressPrefix = "cosmos"
+	AccountAddressPrefix = "astian"
 	// ChainCoinType is the coin type of the chain.
 	ChainCoinType = 118
 )
