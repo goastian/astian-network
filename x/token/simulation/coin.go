@@ -4,8 +4,8 @@ import (
 	"math/rand"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"
+	"github.com/cosmos/cosmos-sdk/client"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	moduletestutil "github.com/cosmos/cosmos-sdk/types/module/testutil"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
@@ -54,9 +54,9 @@ func SimulateMsgUpdateCoin(
 	) (simtypes.OperationMsg, []simtypes.FutureOperation, error) {
 		var (
 			simAccount = simtypes.Account{}
-			coin = types.Coin{}
-			msg = &types.MsgUpdateCoin{}
-			found = false
+			coin       = types.Coin{}
+			msg        = &types.MsgUpdateCoin{}
+			found      = false
 		)
 
 		var allCoin []types.Coin
@@ -67,13 +67,13 @@ func SimulateMsgUpdateCoin(
 		if err != nil {
 			panic(err)
 		}
-		
+
 		for _, obj := range allCoin {
 			acc, err := ak.AddressCodec().StringToBytes(obj.Creator)
 			if err != nil {
 				return simtypes.OperationMsg{}, nil, err
 			}
-			
+
 			simAccount, found = simtypes.FindAccount(accs, sdk.AccAddress(acc))
 			if found {
 				coin = obj
@@ -113,9 +113,9 @@ func SimulateMsgDeleteCoin(
 	) (simtypes.OperationMsg, []simtypes.FutureOperation, error) {
 		var (
 			simAccount = simtypes.Account{}
-			coin = types.Coin{}
-			msg = &types.MsgDeleteCoin{}
-			found = false
+			coin       = types.Coin{}
+			msg        = &types.MsgDeleteCoin{}
+			found      = false
 		)
 
 		var allCoin []types.Coin

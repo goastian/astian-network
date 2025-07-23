@@ -1,10 +1,13 @@
 package token
 
 import (
-	"github.com/cosmos/cosmos-sdk/types/module"
-	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"math/rand"
 
+	"github.com/cosmos/cosmos-sdk/types/module"
+	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
+	"github.com/cosmos/cosmos-sdk/x/simulation"
+
+	"astianetwork/testutil/sample"
 	tokensimulation "astianetwork/x/token/simulation"
 	"astianetwork/x/token/types"
 )

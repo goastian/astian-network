@@ -2,9 +2,9 @@ package keeper_test
 
 import (
 	"context"
+	"strconv"
 	"testing"
 
-    
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/types/query"
 	"github.com/stretchr/testify/require"
@@ -21,6 +21,7 @@ func createNCoin(keeper keeper.Keeper, ctx context.Context, n int) []types.Coin 
 		iu := uint64(i)
 		items[i].Id = iu
 		items[i].Name = strconv.Itoa(i)
+		items[i].Amount = strconv.Itoa(i)
 		_ = keeper.Coin.Set(ctx, iu, items[i])
 		_ = keeper.CoinSeq.Set(ctx, iu)
 	}
@@ -63,7 +64,7 @@ func TestCoinQuerySingle(t *testing.T) {
 			if tc.err != nil {
 				require.ErrorIs(t, err, tc.err)
 			} else {
-			    require.NoError(t, err)
+				require.NoError(t, err)
 				require.EqualExportedValues(t, tc.response, response)
 			}
 		})

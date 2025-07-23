@@ -18,18 +18,18 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Short:     "Shows the parameters of the module",
 				},
 				{
-			RpcMethod: "ListCoin",
-			Use: "list-coin",
-			Short: "List all coin",
-		},
-		{
-			RpcMethod: "GetCoin",
-			Use: "get-coin [id]",
-			Short: "Gets a coin by id",
-			Alias: []string{"show-coin"},
-			PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}},
-		},
-		// this line is used by ignite scaffolding # autocli/query
+					RpcMethod: "ListCoin",
+					Use:       "list-coin",
+					Short:     "List all coin",
+				},
+				{
+					RpcMethod:      "GetCoin",
+					Use:            "get-coin [id]",
+					Short:          "Gets a coin by id",
+					Alias:          []string{"show-coin"},
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}},
+				},
+				// this line is used by ignite scaffolding # autocli/query
 			},
 		},
 		Tx: &autocliv1.ServiceCommandDescriptor{
@@ -41,24 +41,24 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Skip:      true, // skipped because authority gated
 				},
 				{
-			RpcMethod: "CreateCoin",
-			Use: "create-coin [name]",
-			Short: "Create coin",
-			PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "name"}},
-		},
-		{
-			RpcMethod: "UpdateCoin",
-			Use: "update-coin [id] [name]",
-			Short: "Update coin",
-			PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}, {ProtoField: "name"}},
-		},
-		{
-			RpcMethod: "DeleteCoin",
-			Use: "delete-coin [id]",
-			Short: "Delete coin",
-			PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}},
-		},
-		// this line is used by ignite scaffolding # autocli/tx
+					RpcMethod:      "CreateCoin",
+					Use:            "create-coin [name] [amount]",
+					Short:          "Create coin",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "name"}, {ProtoField: "amount"}},
+				},
+				{
+					RpcMethod:      "UpdateCoin",
+					Use:            "update-coin [id] [name] [amount]",
+					Short:          "Update coin",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}, {ProtoField: "name"}, {ProtoField: "amount"}},
+				},
+				{
+					RpcMethod:      "DeleteCoin",
+					Use:            "delete-coin [id]",
+					Short:          "Delete coin",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}},
+				},
+				// this line is used by ignite scaffolding # autocli/tx
 			},
 		},
 	}

@@ -13,32 +13,36 @@ option go_package = "astianetwork/x/token/types";
 // Msg defines the Msg service.
 service Msg {
   option (cosmos.msg.v1.service) = true;
-  
+
   // UpdateParams defines a (governance) operation for updating the module
   // parameters. The authority defaults to the x/gov module account.
-  rpc UpdateParams (MsgUpdateParams) returns (MsgUpdateParamsResponse);
-  
+  rpc UpdateParams(MsgUpdateParams) returns (MsgUpdateParamsResponse);
+
   // CreateCoin defines the CreateCoin RPC.
-  rpc CreateCoin (MsgCreateCoin) returns (MsgCreateCoinResponse);
-  
+  rpc CreateCoin(MsgCreateCoin) returns (MsgCreateCoinResponse);
+
   // UpdateCoin defines the UpdateCoin RPC.
-  rpc UpdateCoin (MsgUpdateCoin) returns (MsgUpdateCoinResponse);
-  
+  rpc UpdateCoin(MsgUpdateCoin) returns (MsgUpdateCoinResponse);
+
   // DeleteCoin defines the DeleteCoin RPC.
-  rpc DeleteCoin (MsgDeleteCoin) returns (MsgDeleteCoinResponse);
+  rpc DeleteCoin(MsgDeleteCoin) returns (MsgDeleteCoinResponse);
 }
+
 // MsgUpdateParams is the Msg/UpdateParams request type.
 message MsgUpdateParams {
-  option (cosmos.msg.v1.signer) =                            "authority";
-  option           (amino.name) = "astianetwork/x/token/MsgUpdateParams";
-  
+  option (cosmos.msg.v1.signer) = "authority";
+  option (amino.name) = "astianetwork/x/token/MsgUpdateParams";
+
   // authority is the address that controls the module (defaults to x/gov unless overwritten).
   string authority = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
-  
+
   // params defines the module parameters to update.
-  
+
   // NOTE: All parameters must be supplied.
-  Params params = 2 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  Params params = 2 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
 }
 
 // MsgUpdateParamsResponse defines the response structure for executing a
@@ -49,7 +53,8 @@ message MsgUpdateParamsResponse {}
 message MsgCreateCoin {
   option (cosmos.msg.v1.signer) = "creator";
   string creator = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
-  string name    = 2;
+  string name = 2;
+  string amount = 3;
 }
 
 // MsgCreateCoinResponse defines the MsgCreateCoinResponse message.
@@ -61,8 +66,9 @@ message MsgCreateCoinResponse {
 message MsgUpdateCoin {
   option (cosmos.msg.v1.signer) = "creator";
   string creator = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
-  uint64 id      = 2;
-  string name    = 3;
+  uint64 id = 2;
+  string name = 3;
+  string amount = 4;
 }
 
 // MsgUpdateCoinResponse defines the MsgUpdateCoinResponse message.
@@ -72,9 +78,8 @@ message MsgUpdateCoinResponse {}
 message MsgDeleteCoin {
   option (cosmos.msg.v1.signer) = "creator";
   string creator = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
-  uint64 id      = 2;
+  uint64 id = 2;
 }
 
 // MsgDeleteCoinResponse defines the MsgDeleteCoinResponse message.
 message MsgDeleteCoinResponse {}
-

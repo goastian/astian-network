@@ -30,6 +30,6 @@ var (
 var ParamsKey = collections.NewPrefix("p_token")
 
 var (
-	CoinKey= collections.NewPrefix("coin/value/")
-	CoinCountKey= collections.NewPrefix("coin/count/")
+	CoinKey      = collections.NewPrefix("coin/value/")
+	CoinCountKey = collections.NewPrefix("coin/count/")
 )

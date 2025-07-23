@@ -2,11 +2,13 @@ package keeper
 
 import (
 	"context"
-	
+	"errors"
+
+	"astianetwork/x/token/types"
+
 	"cosmossdk.io/collections"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/types/query"
-	"astianetwork/x/token/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -20,7 +22,7 @@ func (q queryServer) ListCoin(ctx context.Context, req *types.QueryAllCoinReques
 		ctx,
 		q.k.Coin,
 		req.Pagination,
-		func(_ uint64, value types.Coin) (types.Coin, error){
+		func(_ uint64, value types.Coin) (types.Coin, error) {
 			return value, nil
 		},
 	)

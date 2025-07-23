@@ -3,12 +3,11 @@ package keeper_test
 import (
 	"testing"
 
-    sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"
 
-    "astianetwork/x/token/keeper"
-    "astianetwork/x/token/types"
+	"astianetwork/x/token/keeper"
+	"astianetwork/x/token/types"
 )
 
 func TestCoinMsgServerCreate(t *testing.T) {
