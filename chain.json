@@ -1,0 +1,80 @@
+{
+  "chain_name": "astianetwork",
+  "status": "upcoming",
+  "network_type": "devnet",
+  "website": "https://astianetwork.zone",
+  "pretty_name": "astianetwork",
+  "chain_type": "cosmos",
+  "chain_id": "astianetwork",
+  "bech32_prefix": "astian",
+  "daemon_name": "astianetworkd",
+  "node_home": "/home/ponchale/.astianetwork",
+  "key_algos": [
+    "secp256k1"
+  ],
+  "slip44": 118,
+  "fees": {
+    "fee_tokens": [
+      {
+        "denom": "stake",
+        "fixed_min_gas_price": 0.025,
+        "low_gas_price": 0.01,
+        "average_gas_price": 0.025,
+        "high_gas_price": 0.03
+      }
+    ]
+  },
+  "staking": {
+    "staking_tokens": [
+      {
+        "denom": "stake"
+      }
+    ]
+  },
+  "codebase": {
+    "git_repo": "https://github.com/goastian/astian-network",
+    "genesis": {
+      "genesis_url": ""
+    },
+    "recommended_version": "v1.0.0",
+    "compatible_versions": [
+      "v1.0.0"
+    ],
+    "consensus": {
+      "type": "cometbft",
+      "version": "v0.38.17"
+    },
+    "sdk": {
+      "type": "cosmos",
+      "version": "v0.53.3"
+    },
+    "ibc": {
+      "type": "go",
+      "version": "v10.2.0"
+    },
+    "cosmwasm": {
+      "enabled": false
+    }
+  },
+  "description": "",
+  "apis": {
+    "rpc": [
+      {
+        "address": "http://localhost:26657",
+        "provider": "localhost"
+      }
+    ],
+    "rest": [
+      {
+        "address": "http://localhost:1317",
+        "provider": "localhost"
+      }
+    ],
+    "grpc": [
+      {
+        "address": "localhost:9090",
+        "provider": "localhost"
+      }
+    ]
+  }
+}
